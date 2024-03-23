@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "netbox-loader"
+version = "0.1.0"
+description = ""
+authors = ["Asiri Warnakulasuriya <asiriw2002@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+ansible = "^9.3.0"
+pynetbox = "^7.3.3"
+pytz = "^2024.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
