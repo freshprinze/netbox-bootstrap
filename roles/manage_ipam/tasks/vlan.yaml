@@ -1,17 +1,16 @@
----
-- name: Read IP Prefix Config File
+- name: Read VLAN Config File
   ansible.builtin.include_vars:
     dir: "{{ data_dir }}"
-    files_matching: ip_prefixes.yaml
+    files_matching: vlan.yaml
     name: config
-  tags: ipam
+  tags: vlan
 
-- name: Create IP Prefixes
-  netbox.netbox.netbox_prefix:
-    data: "{{ prefix }}"
+- name: Create VLAN's
+  netbox.netbox.netbox_vlan:
+    data: "{{ vlan }}"
     state: present
-  loop: "{{ config['ip_prefixes'] }}"
+  loop: "{{ config['vlans'] }}"
   loop_control:
-    loop_var: prefix
-    label: "{{ prefix['prefix'] }}"
-  tags: ipam
+    loop_var: vlan
+    label: "{{ vlan['name'] }}"
+  tags: vlan
