@@ -1,20 +1,24 @@
 ---
-# - name: Show Data Dir
-#   ansible.builtin.debug:
-#     msg: "Data Dir = {{ data_dir }}"
-
 - name: Read Location Config File
   ansible.builtin.include_vars:
     dir: "{{ data_dir }}"
     files_matching: locations.yaml
     name: config
 
-- name: Show Content
-  ansible.builtin.debug:
-    msg: "{{ item }}"
+- name: Create Locations
+  netbox.netbox.netbox_location:
+    data: "{{ location }}"
+    state: present
   loop: "{{ config['locations'] }}"
   loop_control:
-    label: "{{ item['name'] }}"
+    loop_var: location
+    label: "{{ location['name'] }}"
+# - name: Show Content
+#   ansible.builtin.debug:
+#     msg: "{{ item }}"
+#   loop: "{{ config['locations'] }}"
+#   loop_control:
+#     label: "{{ item['name'] }}"
 
 # - name: Load Locfigs
 #   ansible.builtin.find:
@@ -32,14 +36,3 @@
 #   ansible.builtin.debug:
 #     msg: "{{ item }}"
 #   loop: "{{ file_list.files | map(attribute='path') | list }}"
-
-- name: Create Locations
-  netbox.netbox.netbox_location:
-    netbox_url: "{{ netbox_url }}"
-    netbox_token: "{{ netbox_token }}"
-    data: "{{ location }}"
-    state: present
-  loop: "{{ config['locations'] }}"
-  loop_control:
-    loop_var: location
-    label: "{{ location['name'] }}"

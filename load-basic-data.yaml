@@ -1,22 +1,26 @@
 ---
 - name: Setup Organization Data
   gather_facts: false
+  module_defaults:
+    group/netbox.netbox.netbox:
+      netbox_url: "{{ netbox_url }}"
+      netbox_token: "{{ netbox_token }}"
   hosts: localhost
   roles:
+    # - create_regions
     - create_sites
-    - create_regions
     - create_locations
 
-- name: Setup Basic Data
-  gather_facts: false
-  hosts: localhost
-  roles:
-    - create_device_roles
-    - create_manufaturers
-    - create_device_types
+# - name: Setup Basic Data
+#   gather_facts: false
+#   hosts: localhost
+#   roles:
+#     - create_device_roles
+#     - create_manufaturers
+#     - create_device_types
 
-- name: Create Devices
-  gather_facts: false
-  hosts: localhost
-  roles:
-    - create_device ## creates device with management ip's, interfaces etc.
+# - name: Create Devices
+#   gather_facts: false
+#   hosts: localhost
+#   roles:
+#     - create_device ## creates device with management ip's, interfaces etc.

@@ -29,3 +29,7 @@
 	```sh
 	ansible-playbook load-basic-data.yaml -l netbox_nodes --tags basic --user=serveradmin
 	```
+
+## References
+
+- [Netbox Ansible Collection Documentation](https://netbox-ansible-collection.readthedocs.io/en/latest/)
