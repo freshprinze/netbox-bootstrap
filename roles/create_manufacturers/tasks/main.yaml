@@ -1,0 +1,15 @@
+---
+- name: Read Manufacturer Config File
+  ansible.builtin.include_vars:
+    dir: "{{ data_dir }}"
+    files_matching: manufacturers.yaml
+    name: config
+
+- name: Create Sites
+  netbox.netbox.netbox_manufacturer:
+    data: "{{ manufacturer }}"
+    state: present
+  loop: "{{ config['manufacturers'] }}"
+  loop_control:
+    loop_var: manufacturer
+    label: "{{ manufacturer['name'] }}"

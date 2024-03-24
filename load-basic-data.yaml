@@ -11,12 +11,16 @@
     - create_sites
     - create_locations
 
-# - name: Setup Basic Data
-#   gather_facts: false
-#   hosts: localhost
-#   roles:
+- name: Setup Basic Data
+  gather_facts: false
+  module_defaults:
+    group/netbox.netbox.netbox:
+      netbox_url: "{{ netbox_url }}"
+      netbox_token: "{{ netbox_token }}"
+  hosts: localhost
+  roles:
+    - create_manufacturers
 #     - create_device_roles
-#     - create_manufaturers
 #     - create_device_types
 
 # - name: Create Devices
