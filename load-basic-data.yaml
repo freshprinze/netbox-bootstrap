@@ -1,6 +1,22 @@
 ---
+- name: Setup Organization Data
+  gather_facts: false
+  hosts: localhost
+  roles:
+    - create_sites
+    - create_regions
+    - create_locations
+
 - name: Setup Basic Data
   gather_facts: false
   hosts: localhost
   roles:
-    - create_locations
+    - create_device_roles
+    - create_manufaturers
+    - create_device_types
+
+- name: Create Devices
+  gather_facts: false
+  hosts: localhost
+  roles:
+    - create_device ## creates device with management ip's, interfaces etc.

@@ -2,9 +2,12 @@
 
 ## Prerequisites
 
+> The `direnv` config file `.envrc` will load the required environment variables using the `.env` file.
+
 ### Required libraries
-- Python
-- Poetry
+- python
+- poetry
+- direnv
 
 ### Mandatory Setup
 
@@ -13,7 +16,7 @@
 	git clone git@github.com:freshprinze/launchpad-config.git
 	```
 
-- Create symbolik link to ```.env``` inside launchpad-config
+- Create symbolik link to `.env` inside launchpad-config
 	```sh
 	cd netbox-bootstrap
 	ln -s <...>/launchpad-config/netbox/env .env
