@@ -1,0 +1,15 @@
+---
+- name: Read Regions Config File
+  ansible.builtin.include_vars:
+    dir: "{{ data_dir }}"
+    files_matching: regions.yaml
+    name: config
+
+- name: Create Sites
+  netbox.netbox.netbox_region:
+    data: "{{ region }}"
+    state: present
+  loop: "{{ config['regions'] }}"
+  loop_control:
+    loop_var: region
+    label: "{{ region['name'] }}"

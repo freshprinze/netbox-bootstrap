@@ -7,7 +7,7 @@
       netbox_token: "{{ netbox_token }}"
   hosts: localhost
   roles:
-    # - create_regions
+    - create_regions
     - create_sites
     - create_locations
 
