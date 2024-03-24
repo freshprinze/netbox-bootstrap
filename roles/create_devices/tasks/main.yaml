@@ -1,4 +1,3 @@
----
 - name: Read Device Config Files
   ansible.builtin.include_vars:
     dir: "{{ data_dir }}/devices"

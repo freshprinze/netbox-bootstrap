@@ -1,4 +1,3 @@
----
 - name: Read Regions Config File
   ansible.builtin.include_vars:
     dir: "{{ data_dir }}"
