@@ -1,0 +1,6 @@
+---
+- name: Create Devices
+  gather_facts: false
+  hosts: localhost
+  roles:
+    - create_devices ## creates device with management ip's, interfaces etc.
