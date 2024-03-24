@@ -1,15 +1,15 @@
 ---
-- name: Read Device Config File
+- name: Read Device Config Files
   ansible.builtin.include_vars:
-    dir: "{{ data_dir }}"
-    files_matching: devices.yaml
+    dir: "{{ data_dir }}/devices"
+    depth: 1
     name: config
 
 - name: Create Device
   netbox.netbox.netbox_device:
-    data: "{{ device }}"
+    data: "{{ device.device }}"
     state: present
   loop: "{{ config['devices'] }}"
   loop_control:
     loop_var: device
-    label: "{{ device['name'] }}"
+    label: "{{ device['device']['name'] }}"
