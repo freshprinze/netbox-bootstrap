@@ -1,0 +1,6 @@
+---
+- name: Setup Basic Data
+  gather_facts: false
+  hosts: localhost
+  roles:
+    - create_locations

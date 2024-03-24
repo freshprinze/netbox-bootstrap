@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "netbox-loader"
+name = "netbox-bootstrap"
 version = "0.1.0"
 description = ""
-authors = ["Asiri Warnakulasuriya <asiriw2002@gmail.com>"]
+authors = ["asiri <asiriw2002@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -11,6 +11,8 @@ ansible = "^9.3.0"
 pynetbox = "^7.3.3"
 pytz = "^2024.1"
 
+[tool.poetry.group.dev.dependencies]
+ansible-lint = { version = "24.2.1", markers = 'platform_system != "Windows"' }
 
 [build-system]
 requires = ["poetry-core"]

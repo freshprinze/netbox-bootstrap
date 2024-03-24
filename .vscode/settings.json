@@ -1,0 +1,4 @@
+{
+"ansible.python.interpreterPath": "/Users/asiri/Development/github.com/freshprinze/netbox-bootstrap/.venv/bin/python",
+"editor.defaultFormatter": "redhat.ansible"
+}
