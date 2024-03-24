@@ -1,0 +1,12 @@
+---
+- name: Manage IP/VLAN Roles
+  ansible.builtin.include_tasks: ip_vlan_roles.yaml
+  tags: ipam,vlan
+
+- name: Manage VLANs
+  ansible.builtin.include_tasks: vlan.yaml
+  tags: vlan
+
+- name: Manage IP Prefixes
+  ansible.builtin.include_tasks: ip_prefixes.yaml
+  tags: ipam

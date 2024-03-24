@@ -1,0 +1,17 @@
+---
+- name: Read IP/VLAN Config File
+  ansible.builtin.include_vars:
+    dir: "{{ data_dir }}"
+    files_matching: ip_vlan_roles.yaml
+    name: config
+  tags: ipam,vlan
+
+- name: Create IP/VLAN Roles
+  netbox.netbox.netbox_ipam_role:
+    data: "{{ role }}"
+    state: present
+  loop: "{{ config['ip_vlan_roles'] }}"
+  loop_control:
+    loop_var: role
+    label: "{{ role['name'] }}"
+  tags: ipam,vlan
