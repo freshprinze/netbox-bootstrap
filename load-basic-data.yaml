@@ -10,6 +10,7 @@
     - create_regions
     - create_sites
     - create_locations
+    - create_racks
 
 - name: Setup Basic Data
   gather_facts: false
