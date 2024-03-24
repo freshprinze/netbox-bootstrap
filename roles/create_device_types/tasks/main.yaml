@@ -5,7 +5,7 @@
     files_matching: device_types.yaml
     name: config
 
-- name: Create Locations
+- name: Create Device Types
   netbox.netbox.netbox_device_type:
     data: "{{ type }}"
     state: present
