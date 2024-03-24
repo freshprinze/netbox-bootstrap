@@ -21,4 +21,4 @@
   roles:
     - create_manufacturers
     - create_device_roles
-#     - create_device_types
+    - create_device_types
